@@ -15,7 +15,7 @@ services:
       - MYSQL_ROOT_PASSWORD=
       - TZ=Europe/Kiev
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -32,10 +32,10 @@ services:
     ports:
      - 8001:80
     volumes:
-     - pma-data:/sessions
+     - pma_data:/sessions
     depends_on:
       - mysql
 
 volumes:
-  mysql-data:
-  pma-data:
+  mysql_data:
+  pma_data:
