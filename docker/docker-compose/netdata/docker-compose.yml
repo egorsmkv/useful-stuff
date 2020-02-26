@@ -4,6 +4,7 @@ services:
   netdata:
     image: netdata/netdata
     hostname: example.com
+    container_name: netdata
     restart: always
     ports:
       - 8002:19999
