@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  beanstalkd:
+    image: easypost/beanstalkd
+    container_name: beanstalkd
+    restart: always
+    ports:
+      - 11300:11300
+    volumes:
+      - beanstalkd_data:/data
+
+  beanstalkd_console:
+    image: ashve/beanstalkd-console
+    container_name: beanstalkd_console
+    restart: always
+    environment:
+      - BEANSTALKD_PORT_11300_TCP_ADDR=beanstalkd
+    depends_on:
+      - beanstalkd
+    ports:
+      - "8004:2080"
+
+volumes:
+  beanstalkd_data:
