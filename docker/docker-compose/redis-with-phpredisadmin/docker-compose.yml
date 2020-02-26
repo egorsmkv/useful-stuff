@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:5.0.7-alpine
+    container_name: redis
+    restart: always
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+
+  phpredisadmin:
+    image: erikdubbelboer/phpredisadmin:v1.13.0
+    container_name: phpredisadmin
+    environment:
+      - ADMIN_USER=
+      - ADMIN_PASS=
+      - REDIS_1_HOST=redis
+      - REDIS_1_PORT=6379
+    depends_on:
+      - redis
+    ports:
+      - "8003:80"
+
+volumes:
+  redis_data:
+
