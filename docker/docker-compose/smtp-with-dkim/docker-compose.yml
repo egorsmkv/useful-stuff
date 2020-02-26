@@ -1,6 +1,6 @@
 version: '3.7'
 
-# Amazon restricts sending of email to 25 ports for new account, be informed
+# Amazon restricts sending of email to 25 ports for new accounts, be informed
 # Helpful: https://4te.me/post/postfix-docker-ptr-spf-dkim-dmarc/
 
 services:
