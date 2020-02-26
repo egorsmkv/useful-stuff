@@ -11,8 +11,8 @@ services:
     environment:
       - MYSQL_DATABASE=forum
       - MYSQL_USER=forum
-      - MYSQL_PASSWORD=kaeb2yohJoh1shuaBiu5
-      - MYSQL_ROOT_PASSWORD=ohhi1ne0Mee4eidaeved
+      - MYSQL_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=
       - TZ=Europe/Kiev
     volumes:
       - mysql-data:/var/lib/mysql
@@ -25,9 +25,9 @@ services:
      - PMA_HOST=mysql
      - HIDE_PHP_VERSION=true
      - UPLOAD_LIMIT=52428800 # 50 mb
-     - MYSQL_ROOT_PASSWORD=ohhi1ne0Mee4eidaeved
-     - MYSQL_USER=forum
-     - MYSQL_PASSWORD=kaeb2yohJoh1shuaBiu5
+     - MYSQL_ROOT_PASSWORD=
+     - MYSQL_USER=
+     - MYSQL_PASSWORD=
     restart: always
     ports:
      - 8001:80
