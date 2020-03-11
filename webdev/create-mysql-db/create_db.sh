@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-mysql -u root --password=G5FJvGKV < create_mysql_db.sql
+mysql -u root --password=ROOT_PASSWORD < create_mysql_db.sql
 
 retVal=$?
 if [ $retVal -ne 0 ]; then
