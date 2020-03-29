@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:4.2.5
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27117:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+  mongo_express:
+    image: mongo-express
+    container_name: mongo_express
+    restart: always
+    links:
+      - mongodb:mongo
+    ports:
+      - 9081:8081
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpassword
+
+volumes:
+  mongodb_data_container:
