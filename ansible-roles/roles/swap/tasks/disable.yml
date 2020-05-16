@@ -1,0 +1,14 @@
+---
+- name: Ensure swap file exists.
+  stat:
+    path: '{{ swap_file_path }}'
+  register: stat_swap
+
+- name: Disable swap (if configured).
+  command: swapoff -a
+  when: stat_swap.stat.exists = True
+
+- name: Ensure swap file doesn't exist (if configured).
+  file:
+    path: "{{ swap_file_path }}"
+    state: absent

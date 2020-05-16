@@ -1,0 +1,21 @@
+---
+# tasks file for ansible-role-selinux-disable
+
+- name: Ensure that the selinux packages are installed
+  yum:
+    name:
+      - libselinux-python
+      - selinux-policy
+    state: present
+
+- name: Disable selinux
+  selinux:
+    state: disabled
+  register: _selinux_module
+
+- name: Attempting to reboot if selinux was active and "selinux_reboot=true" (default is selinux_reboot=false)
+  reboot:
+    reboot_timeout: "{{ selinux_reboot_timeout }}"
+  when:
+    - _selinux_module is changed
+    - selinux_reboot

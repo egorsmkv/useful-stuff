@@ -1,0 +1,11 @@
+---
+
+- name: Set UTC timezone
+  timezone:
+    name: UTC
+
+- name: Install ntp
+  yum:
+    name: ntp
+    state: present
+  notify: start ntp

@@ -1,0 +1,17 @@
+---
+
+  - name: "Create users"
+    user:
+      name: "{{ item.username }}"
+      password: "{{ item.password }}"
+      shell: /bin/bash
+      createhome: true
+      group: wheel
+    with_items: "{{ users }}"
+
+  - name: "Add authorized keys"
+    authorized_key:
+      user: "{{ item.username }}"
+      state: present
+      key: "{{ item.ssh_public_key }}"
+    with_items: "{{ users }}"

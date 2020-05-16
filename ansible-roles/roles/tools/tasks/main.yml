@@ -1,0 +1,19 @@
+---
+
+- name: Install epel repo
+  yum: 
+    state: present 
+    name: "epel-release"
+
+- name: Install tools
+  yum: 
+    state: present 
+    name: 
+     - nano
+     - vim
+     - git
+     - unzip
+     - wget
+     - tree
+     - htop
+     - net-tools

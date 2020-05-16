@@ -1,0 +1,47 @@
+---
+
+- name: Update sshd configuration
+  template:
+    src: "sshd_config"
+    dest: "/etc/ssh/sshd_config"
+    owner: root
+    group: root
+    mode: 0600
+  notify: 
+    - restart sshd
+
+- name: Change selinux ssh port
+  seport:
+    ports: "{{ ssh_port }}"
+    proto: tcp
+    setype: ssh_port_t
+    state: present
+
+- name: Start firewald
+  systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: Remove default ssh port
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: disabled
+
+- name: Add custom ssh port
+  firewalld:
+    port: "{{ ssh_port }}/tcp"
+    permanent: yes
+    state: enabled
+  notify: 
+    - reload firewalld
+
+- name: Enable specified services for firewalld
+  firewalld:
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+  with_items: "{{ firewalld_service }}"
+  notify: 
+    - reload firewalld

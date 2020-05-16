@@ -1,0 +1,16 @@
+---
+
+- name: restart sshd
+  systemd:
+    state: restarted
+    name: sshd
+
+- name: reload firewalld
+  systemd:
+    state: reloaded
+    name: firewalld
+
+- name: start ntp
+  systemd:
+    state: started
+    enabled: yes
