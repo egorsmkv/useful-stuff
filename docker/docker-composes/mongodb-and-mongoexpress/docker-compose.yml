@@ -10,6 +10,10 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
       - 27117:27017
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     volumes:
       - mongodb_data_container:/data/db
 
@@ -17,8 +21,6 @@ services:
     image: mongo-express
     container_name: mongo_express
     restart: always
-    ports:
-      - 9081:8081
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongodb
       - ME_CONFIG_MONGODB_PORT=27017
@@ -27,6 +29,12 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=admin
       - ME_CONFIG_MONGODB_ADMINUSERNAME=root
       - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpassword
+    ports:
+      - 9081:8081
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     depends_on:
       - mongodb
 

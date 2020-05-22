@@ -11,6 +11,10 @@ services:
       - POSTGRES_DB=demo
     ports:
       - 6432:5432
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -42,6 +46,10 @@ services:
       - PHP_PG_ADMIN_USE_XHTML_STRICT=false
       - PHP_PG_ADMIN_HELP_BASE=http://www.postgresql.org/docs/%s/interactive/
       - PHP_PG_ADMIN_AJAX_REFRESH=3
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     ports:
       - 8032:80
 

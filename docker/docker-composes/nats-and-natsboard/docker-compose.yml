@@ -9,6 +9,10 @@ services:
       - 4222:4222
       - 6222:6222
       - 8222:8222
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
 
   natsboard:
     image: chrkaatz/natsboard
@@ -18,5 +22,9 @@ services:
     ports:
       - 3000:3000
       - 3001:3001
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     depends_on:
       - nats

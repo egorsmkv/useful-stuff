@@ -8,6 +8,10 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
     ports:
       - 6379:6379
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     volumes:
       - redis_data:/data
 
@@ -20,10 +24,14 @@ services:
       - ADMIN_PASS=
       - REDIS_1_HOST=redis
       - REDIS_1_PORT=6379
-    depends_on:
-      - redis
     ports:
       - 8003:80
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
+    depends_on:
+      - redis
 
 volumes:
   redis_data:

@@ -6,11 +6,15 @@ services:
     container_name: minio
     restart: always
     command: ["server", "/data"]
-    ports:
-      - 8090:9000
     environment:
       MINIO_ACCESS_KEY: minio000
       MINIO_SECRET_KEY: minio111
+    ports:
+      - 8090:9000
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     volumes:
       - data_minio:/data
 
@@ -32,13 +36,17 @@ services:
     image: mysql:5.7
     container_name: mysql
     restart: always
-    ports:
-      - 8306:3306
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
       MYSQL_DATABASE: mydb
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypwd
+    ports:
+      - 8306:3306
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     volumes:
       - data_mysql:/var/lib/mysql
 
@@ -56,6 +64,10 @@ services:
       AWS_ACCESS_KEY_ID: minio000
       AWS_SECRET_ACCESS_KEY: minio111
       AWS_ENDPOINT_URL: http://minio:9000/
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
     depends_on:
       - mysql
       - minio
