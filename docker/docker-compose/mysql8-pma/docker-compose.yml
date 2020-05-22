@@ -22,16 +22,16 @@ services:
     restart: always
     container_name: phpmyadmin
     environment:
-     - PMA_HOST=mysql
-     - HIDE_PHP_VERSION=true
-     - UPLOAD_LIMIT=52428800 # 50 mb
-     - MYSQL_ROOT_PASSWORD=
-     - MYSQL_USER=
-     - MYSQL_PASSWORD=
+      - PMA_HOST=mysql
+      - HIDE_PHP_VERSION=true
+      - UPLOAD_LIMIT=52428800 # 50 mb
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=
     ports:
-     - 8001:80
+      - 8001:80
     volumes:
-     - pma_data:/sessions
+      - pma_data:/sessions
     depends_on:
       - mysql
 

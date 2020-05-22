@@ -1,18 +1,22 @@
-version: '2'
+version: '3'
 
 services:
   nats:
     image: bitnami/nats:2
+    container_name: nats
+    restart: always
     ports:
-      - '4222:4222'
-      - '6222:6222'
-      - '8222:8222'
+      - 4222:4222
+      - 6222:6222
+      - 8222:8222
 
   natsboard:
     image: chrkaatz/natsboard
-    command: bin/natsboard --nats-mon-url http://nats:8222
+    container_name: natsboard
+    restart: always
+    command: ["bin/natsboard", "--nats-mon-url", "http://nats:8222"]
     ports:
-      - "3000:3000"
-      - "3001:3001"
+      - 3000:3000
+      - 3001:3001
     depends_on:
       - nats

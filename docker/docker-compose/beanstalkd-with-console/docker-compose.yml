@@ -16,10 +16,10 @@ services:
     restart: always
     environment:
       - BEANSTALKD_PORT_11300_TCP_ADDR=beanstalkd
+    ports:
+      - 8004:2080
     depends_on:
       - beanstalkd
-    ports:
-      - "8004:2080"
 
 volumes:
   beanstalkd_data:

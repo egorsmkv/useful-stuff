@@ -1,58 +1,64 @@
 version: '3'
 
 services:
- minio:
-  image: minio/minio:RELEASE.2019-01-16T21-44-08Z
-  volumes:
-   - data_minio:/data
-  ports:
-   - "8090:9000"
-  restart: always
-  environment:
-   MINIO_ACCESS_KEY: minio000
-   MINIO_SECRET_KEY: minio111
-  command: server /data
- createbuckets:
-  image: minio/mc
-  depends_on:
-   - minio
-  # we must create a new bucket for our backup files
-  entrypoint: >
-   /bin/sh -c "
-   /usr/bin/mc config host add myminio http://minio:9000 minio000 minio111;
-   /usr/bin/mc rm -r --force myminio/mysql-backups;
-   /usr/bin/mc mb myminio/mysql-backups;
-   /usr/bin/mc policy download myminio/mysql-backups;
-   exit 0;
-   "
- mysql:
-  image: mysql:5.7
-  volumes:
-   - data_mysql:/var/lib/mysql
-  ports:
-   - "8306:3306"
-  restart: always
-  environment:
-   MYSQL_ROOT_PASSWORD: rootpwd
-   MYSQL_DATABASE: mydb
-   MYSQL_USER: myuser
-   MYSQL_PASSWORD: mypwd
- backup:
-  image: deitch/mysql-backup
-  depends_on:
-   - mysql
-   - minio
-  restart: always
-  environment:
-   DB_DUMP_TARGET: s3://mysql-backups
-   DB_USER: myuser
-   DB_PASS: mypwd
-   DB_PORT: 3306
-   DB_DUMP_FREQ: 60 # run backup every 60 minutes
-   DB_SERVER: mysql
-   AWS_ACCESS_KEY_ID: minio000
-   AWS_SECRET_ACCESS_KEY: minio111
-   AWS_ENDPOINT_URL: http://minio:9000/
+  minio:
+    image: minio/minio:RELEASE.2019-01-16T21-44-08Z
+    container_name: minio
+    restart: always
+    command: ["server", "/data"]
+    ports:
+      - 8090:9000
+    environment:
+      MINIO_ACCESS_KEY: minio000
+      MINIO_SECRET_KEY: minio111
+    volumes:
+      - data_minio:/data
+
+  createbuckets:
+    image: minio/mc
+    depends_on:
+      - minio
+    # we must create a new bucket for our backup files
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc config host add myminio http://minio:9000 minio000 minio111;
+      /usr/bin/mc rm -r --force myminio/mysql-backups;
+      /usr/bin/mc mb myminio/mysql-backups;
+      /usr/bin/mc policy download myminio/mysql-backups;
+      exit 0;
+      "
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    ports:
+      - 8306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpwd
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypwd
+    volumes:
+      - data_mysql:/var/lib/mysql
+
+  backup:
+    image: deitch/mysql-backup
+    container_name: backup
+    restart: always
+    environment:
+      DB_DUMP_TARGET: s3://mysql-backups
+      DB_USER: myuser
+      DB_PASS: mypwd
+      DB_PORT: 3306
+      DB_DUMP_FREQ: 60 # run backup every 60 minutes
+      DB_SERVER: mysql
+      AWS_ACCESS_KEY_ID: minio000
+      AWS_SECRET_ACCESS_KEY: minio111
+      AWS_ENDPOINT_URL: http://minio:9000/
+    depends_on:
+      - mysql
+      - minio
 
 volumes:
   data_minio:

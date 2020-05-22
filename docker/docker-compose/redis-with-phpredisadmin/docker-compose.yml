@@ -23,8 +23,7 @@ services:
     depends_on:
       - redis
     ports:
-      - "8003:80"
+      - 8003:80
 
 volumes:
   redis_data:
-
