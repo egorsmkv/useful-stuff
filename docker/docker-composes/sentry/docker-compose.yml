@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  sentry-base:
+    image: 'sentry:9.1.2'
+    container_name: sentry-base
+    restart: unless-stopped
+    depends_on:
+      - sentry-redis
+      - sentry-postgres
+    links:
+      - sentry-redis
+      - sentry-postgres
+    ports:
+      - 9898:9000
+    env_file:
+      - sentry.env
+    volumes:
+      - sentry_data:/var/lib/sentry/files
+
+  sentry-cron:
+    image: 'sentry:9.1.2'
+    restart: unless-stopped
+    depends_on:
+      - sentry-base
+    links:
+      - sentry-redis
+      - sentry-postgres
+    command: "sentry run cron"
+    env_file:
+      - sentry.env
+    volumes:
+      - sentry_data:/var/lib/sentry/files
+
+  sentry-worker:
+    image: 'sentry:9.1.2'
+    depends_on:
+      - sentry-base
+    links:
+      - sentry-redis
+      - sentry-postgres
+    command: "sentry run worker"
+    env_file:
+      - sentry.env
+    volumes:
+      - sentry_data:/var/lib/sentry/files
+
+  sentry-redis:
+    image: 'redis:3'
+
+  sentry-postgres:
+    image: 'postgres:9-alpine'
+    environment:
+      POSTGRES_USER: sentry
+      POSTGRES_PASSWORD: sentry
+      POSTGRES_DB: sentry
+    volumes:
+      - sentry_pg:/var/lib/postgresql/data
+
+volumes:
+  sentry_data:
+  sentry_pg:
