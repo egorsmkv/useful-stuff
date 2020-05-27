@@ -4,7 +4,7 @@ services:
   sentry-base:
     image: 'sentry:9.1.2'
     container_name: sentry-base
-    restart: unless-stopped
+    restart: always
     depends_on:
       - sentry-redis
       - sentry-postgres
@@ -20,7 +20,7 @@ services:
 
   sentry-cron:
     image: 'sentry:9.1.2'
-    restart: unless-stopped
+    restart: always
     depends_on:
       - sentry-base
     links:
@@ -34,6 +34,7 @@ services:
 
   sentry-worker:
     image: 'sentry:9.1.2'
+    restart: always
     depends_on:
       - sentry-base
     links:
@@ -47,9 +48,11 @@ services:
 
   sentry-redis:
     image: 'redis:3'
+    restart: always
 
   sentry-postgres:
     image: 'postgres:9-alpine'
+    restart: always
     environment:
       POSTGRES_USER: sentry
       POSTGRES_PASSWORD: sentry
