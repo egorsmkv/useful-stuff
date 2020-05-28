@@ -1,16 +1,13 @@
 version: '3'
 
 services:
-  sentry-base:
-    image: 'sentry:9.1.2'
-    container_name: sentry-base
+  sentry_base:
+    image: sentry:9.1.2
+    container_name: sentry_base
     restart: always
     depends_on:
-      - sentry-redis
-      - sentry-postgres
-    links:
-      - sentry-redis
-      - sentry-postgres
+      - sentry_redis
+      - sentry_postgres
     ports:
       - 9898:9000
     env_file:
@@ -18,47 +15,54 @@ services:
     volumes:
       - sentry_data:/var/lib/sentry/files
 
-  sentry-cron:
-    image: 'sentry:9.1.2'
+  sentry_cron:
+    image: sentry:9.1.2
+    container_name: sentry_cron
     restart: always
     depends_on:
-      - sentry-base
-    links:
-      - sentry-redis
-      - sentry-postgres
-    command: "sentry run cron"
+      - sentry_base
+    command: 'sentry run cron'
     env_file:
       - sentry.env
     volumes:
       - sentry_data:/var/lib/sentry/files
 
-  sentry-worker:
-    image: 'sentry:9.1.2'
+  sentry_worker:
+    image: sentry:9.1.2
+    container_name: sentry_worker
     restart: always
     depends_on:
-      - sentry-base
-    links:
-      - sentry-redis
-      - sentry-postgres
-    command: "sentry run worker"
+      - sentry_base
+    command: 'sentry run worker'
     env_file:
       - sentry.env
     volumes:
       - sentry_data:/var/lib/sentry/files
 
-  sentry-redis:
-    image: 'redis:3'
+  sentry_redis:
+    image: redis:3
+    container_name: sentry_redis
     restart: always
+    command: 'redis-server --appendonly yes'
 
-  sentry-postgres:
-    image: 'postgres:9-alpine'
+  sentry_postgres:
+    image: postgres:9-alpine
+    container_name: sentry_postgres
     restart: always
-    environment:
-      POSTGRES_USER: sentry
-      POSTGRES_PASSWORD: sentry
-      POSTGRES_DB: sentry
+    env_file:
+      - sentry.env
     volumes:
       - sentry_pg:/var/lib/postgresql/data
+
+  sentry_phppgadmin:
+    image: dockage/phppgadmin:latest
+    container_name: sentry_pgadmin
+    env_file:
+      - sentry.env
+    ports:
+      - 9899:80
+    depends_on:
+      - sentry_postgres
 
 volumes:
   sentry_data:
