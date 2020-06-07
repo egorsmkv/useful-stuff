@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: library/rabbitmq:3.8-management-alpine
+    container_name: rabbitmq_shieldsmtp
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=secret
+      - RABBITMQ_DEFAULT_USER=adm
+      - RABBITMQ_DEFAULT_PASS=adm
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  rabbitmq_data:
