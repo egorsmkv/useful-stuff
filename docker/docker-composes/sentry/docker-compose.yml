@@ -57,6 +57,7 @@ services:
   sentry_phppgadmin:
     image: dockage/phppgadmin:latest
     container_name: sentry_pgadmin
+    restart: always
     env_file:
       - sentry.env
     ports:
