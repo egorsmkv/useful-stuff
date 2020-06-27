@@ -36,3 +36,4 @@ memcached-tool localhost:11211 dump | less
 
 - htop
 - [memcache-top](https://github.com/eculver/memcache-top/blob/master/memcache-top)
+- [gmonitor](https://github.com/mountassir/gmonitor) - monitoring of Nvidia GPU usage
