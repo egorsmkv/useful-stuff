@@ -23,3 +23,10 @@ Open a crash file on Ubuntu:
 ```
 apport-retrace --stdout _usr_lib_xorg_Xorg.0.crash
 ```
+
+### Software
+
+#### Monitoring
+
+- htop
+- [memcache-top](https://github.com/eculver/memcache-top/blob/master/memcache-top)
