@@ -30,3 +30,4 @@ apport-retrace --stdout _usr_lib_xorg_Xorg.0.crash
 
 - htop
 - [memcache-top](https://github.com/eculver/memcache-top/blob/master/memcache-top)
+- `memcached-tool localhost:11211 dump | less`
