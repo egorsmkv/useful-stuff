@@ -17,3 +17,9 @@ Upload a file to a file share service:
 ```
 curl --upload-file file.txt https://keep.sh -H "Password: passw0101rd"
 ```
+
+Open a crash file on Ubuntu:
+
+```
+apport-retrace --stdout _usr_lib_xorg_Xorg.0.crash
+```
