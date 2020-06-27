@@ -24,10 +24,15 @@ Open a crash file on Ubuntu:
 apport-retrace --stdout _usr_lib_xorg_Xorg.0.crash
 ```
 
+Show all the keys in a memcache server:
+
+```
+memcached-tool localhost:11211 dump | less
+```
+
 ### Software
 
 #### Monitoring
 
 - htop
 - [memcache-top](https://github.com/eculver/memcache-top/blob/master/memcache-top)
-- `memcached-tool localhost:11211 dump | less`
