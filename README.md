@@ -24,7 +24,7 @@ Open a crash file on Ubuntu:
 apport-retrace --stdout _usr_lib_xorg_Xorg.0.crash
 ```
 
-Show all the keys in a memcache instance:
+Show all the keys on a memcache instance:
 
 ```
 memcached-tool localhost:11211 dump | less
