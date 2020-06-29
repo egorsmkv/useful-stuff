@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable Transparent Huge Pages
+Documentation=https://redis.io/topics/latency
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "/usr/bin/echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled"
+ExecStart=/usr/bin/sh -c "/usr/bin/echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag"
+
+[Install]
+WantedBy=multi-user.target
