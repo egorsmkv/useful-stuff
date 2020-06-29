@@ -30,6 +30,12 @@ Show all the keys on a memcache instance:
 memcached-tool localhost:11211 dump | less
 ```
 
+Add an IP that can access specified port to FirewallD:
+
+```
+firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=X.X.X.X port port=6379 protocol=tcp accept'
+```
+
 ### Software
 
 #### Monitoring
