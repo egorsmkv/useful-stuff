@@ -43,6 +43,14 @@ firewall-cmd --permanent --remove-rich-rule 'rule family=ipv4 source address=X.X
 firewall-cmd --list-all
 ```
 
+Add a user for Percona Monitor and Management:
+
+```
+CREATE USER pmm@% IDENTIFIED BY 'pass';
+GRANT SELECT, PROCESS, SUPER, REPLICATION CLIENT, RELOAD ON *.* TO 'pmm'@'%';
+GRANT SELECT, UPDATE, DELETE, DROP ON performance_schema.* TO 'pmm'@'%';
+```
+
 ### Software
 
 #### Monitoring
