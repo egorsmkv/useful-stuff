@@ -51,6 +51,23 @@ GRANT SELECT, PROCESS, SUPER, REPLICATION CLIENT, RELOAD ON *.* TO 'pmm'@'%';
 GRANT SELECT, UPDATE, DELETE, DROP ON performance_schema.* TO 'pmm'@'%';
 ```
 
+Read the General MySQL log:
+
+Create the log file:
+
+```
+touch /var/log/mysql.log
+tail -f /var/log/mysql.log
+```
+
+Enable logging:
+
+```
+SET global general_log_file='/var/log/mysql.log';
+SET global log_output = 'file';
+SET global general_log = on;
+```
+
 ### Software
 
 #### Monitoring
