@@ -18,6 +18,12 @@ Upload a file to a file share service:
 curl --upload-file file.txt https://keep.sh -H "Password: passw0101rd"
 ```
 
+Create a spectrogram:
+
+```
+sox file.sln -n spectrogram -o spec_img.png -x 2000
+```
+
 Open a crash file on Ubuntu:
 
 ```
