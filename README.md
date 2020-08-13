@@ -80,6 +80,14 @@ Determine the size of databases in MySQL:
 SELECT table_schema AS "Database", SUM(data_length + index_length) / 1024 / 1024 / 1024 AS "Size (GB)" FROM information_schema.TABLES GROUP BY table_schema;
 ```
 
+Determine server's disk types:
+
+```
+lsblk -d -o name,rota
+```
+
+0 means SSD, 1 means HDD
+
 ### Software
 
 #### Monitoring
