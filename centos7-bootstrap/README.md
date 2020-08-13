@@ -24,3 +24,9 @@ cd Python-3.8.5
 ./configure --enable-optimizations
 make altinstall
 ```
+
+## Add SWAP
+
+```
+dd if=/dev/zero of=/swapfile count=4096 bs=1MiB && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo '\n\n/swapfile   swap    swap    sw  0   0' >> /etc/fstab
+```
