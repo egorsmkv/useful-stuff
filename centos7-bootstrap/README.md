@@ -132,4 +132,25 @@ git clone git://github.com/vozlt/nginx-module-vts.git
 useradd nginx
 mkdir /opt/nginx-1.19.2/
 chown -R nginx:nginx /opt/nginx-1.19.2/
+
+vim /usr/lib/systemd/system/nginx.service
+
+# Paste the following
+
+[Unit]
+Description=nginx - high performance web server
+Documentation=https://nginx.org/en/docs/
+After=network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/opt/nginx-1.19.2/nginx.pid
+ExecStartPre=/opt/nginx-1.19.2/sbin/nginx -t -c /opt/nginx-1.19.2/conf/nginx.conf
+ExecStart=/opt/nginx-1.19.2/sbin/nginx -c /opt/nginx-1.19.2/conf/nginx.conf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
 ```
