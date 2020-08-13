@@ -129,11 +129,12 @@ git clone git://github.com/vozlt/nginx-module-vts.git
   --add-module=./ngx_brotli
   --add-module=./nginx-module-vts
 
+mkdir /opt/nginx-1.19.2/
+
 make
 make install
 
 useradd nginx
-mkdir /opt/nginx-1.19.2/
 chown -R nginx:nginx /opt/nginx-1.19.2/
 
 vim /usr/lib/systemd/system/nginx.service
