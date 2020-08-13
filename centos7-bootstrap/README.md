@@ -60,3 +60,21 @@ mv lego /usr/local/bin
 
 lego --email="foo@bar.com" --domains="example.com" --http run
 ```
+
+## Install NGINX
+
+```
+yum install \
+zlib-devel \
+openssl \
+openssl-devel \
+pcre \
+pcre-devel \
+libxml2-devel \
+libxslt-devel \
+libgcrypt-devel \
+gd \
+gd-devel \
+perl-ExtUtils-Embed \
+GeoIP-devel
+```
