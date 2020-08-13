@@ -87,6 +87,7 @@ tar xf nginx-1.19.2.tar.gz
 cd nginx-1.19.2
 
 git clone https://github.com/google/ngx_brotli.git
+cd ./ngx_brotli && git submodule update --init && cd ..
 
 ./configure \
   --with-pcre \
