@@ -86,6 +86,8 @@ wget https://nginx.org/download/nginx-1.19.2.tar.gz
 tar xf nginx-1.19.2.tar.gz
 cd nginx-1.19.2
 
+git clone git@github.com:google/ngx_brotli.git
+
 ./configure \
   --with-pcre \
   --prefix=/opt/nginx-1.19.2 \
@@ -120,5 +122,6 @@ cd nginx-1.19.2
   --with-stream_ssl_module \
   --with-stream_realip_module \
   --with-stream_geoip_module=dynamic \
-  --with-stream_ssl_preread_module
+  --with-stream_ssl_preread_module \
+  --add-module=./ngx_brotli
 ```
