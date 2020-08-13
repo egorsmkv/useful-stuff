@@ -86,7 +86,7 @@ wget https://nginx.org/download/nginx-1.19.2.tar.gz
 tar xf nginx-1.19.2.tar.gz
 cd nginx-1.19.2
 
-git clone git@github.com:google/ngx_brotli.git
+git clone https://github.com/google/ngx_brotli.git
 
 ./configure \
   --with-pcre \
