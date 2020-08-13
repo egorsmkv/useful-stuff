@@ -89,6 +89,8 @@ cd nginx-1.19.2
 git clone https://github.com/google/ngx_brotli.git
 cd ./ngx_brotli && git submodule update --init && cd ..
 
+git clone git://github.com/vozlt/nginx-module-vts.git
+
 ./configure \
   --with-pcre \
   --prefix=/opt/nginx-1.19.2 \
@@ -125,4 +127,5 @@ cd ./ngx_brotli && git submodule update --init && cd ..
   --with-stream_geoip_module=dynamic \
   --with-stream_ssl_preread_module \
   --add-module=./ngx_brotli
+  --add-module=./nginx-module-vts
 ```
