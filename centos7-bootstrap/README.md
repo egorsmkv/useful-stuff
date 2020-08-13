@@ -128,4 +128,8 @@ git clone git://github.com/vozlt/nginx-module-vts.git
   --with-stream_ssl_preread_module \
   --add-module=./ngx_brotli
   --add-module=./nginx-module-vts
+
+useradd nginx
+mkdir /opt/nginx-1.19.2/
+chown -R nginx:nginx /opt/nginx-1.19.2/
 ```
