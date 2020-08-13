@@ -38,3 +38,17 @@ echo 'vm.swappiness = 10' >> /etc/sysctl.conf && echo 'vm.vfs_cache_pressure = 5
 ```bash
 vim /etc/selinux/config # set SELINUX=disabled and reboot
 ```
+
+## Install Docker & Docker Compose
+
+```
+yum install -y yum-utils
+yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+yum install docker-ce docker-ce-cli containerd.io
+systemctl start docker
+systemctl enable docker
+
+curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
