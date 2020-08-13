@@ -72,11 +72,17 @@ yum install \
   openssl-devel \
   pcre \
   pcre-devel \
+  libxml2 \
   libxml2-devel \
   libxslt-devel \
   libgcrypt-devel \
   gd \
   gd-devel \
   perl-ExtUtils-Embed \
+  GeoIP \
   GeoIP-devel
+
+wget https://nginx.org/download/nginx-1.19.2.tar.gz
+tar xf nginx-1.19.2.tar.gz
+cd nginx-1.19.2
 ```
