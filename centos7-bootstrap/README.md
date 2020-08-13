@@ -32,3 +32,9 @@ dd if=/dev/zero of=/swapfile count=4096 bs=1MiB && chmod 600 /swapfile && mkswap
 
 echo 'vm.swappiness = 10' >> /etc/sysctl.conf && echo 'vm.vfs_cache_pressure = 50' >> /etc/sysctl.conf
 ```
+
+## Disable SElinux
+
+```bash
+vim /etc/selinux/config # set SELINUX=disabled and reboot
+```
