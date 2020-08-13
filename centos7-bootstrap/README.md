@@ -23,4 +23,4 @@ tar xvf Python-3.8.5.tgz
 cd Python-3.8.5
 ./configure --enable-optimizations
 make altinstall
-``
+```
