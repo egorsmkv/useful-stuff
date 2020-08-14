@@ -53,7 +53,7 @@ systemctl enable docker
 curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 ```
 
-## Install ACME for obtaining SSL certs
+## Install LEGO for obtaining SSL certs
 
 ```
 wget https://github.com/go-acme/lego/releases/download/v3.8.0/lego_v3.8.0_linux_amd64.tar.gz
