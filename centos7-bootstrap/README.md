@@ -164,3 +164,14 @@ WantedBy=multi-user.target
 systemctl start nginx
 systemctl enable nginx
 ```
+
+## Install Go
+
+```
+wget https://dl.google.com/go/go1.15.linux-amd64.tar.gz
+tar xf go1.15.linux-amd64.tar.gz
+mv go /usr/local/
+
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+
+```
