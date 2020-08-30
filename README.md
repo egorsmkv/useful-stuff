@@ -84,9 +84,15 @@ Determine server's disk types:
 
 ```
 lsblk -d -o name,rota
+
+# 0 means SSD, 1 means HDD
 ```
 
-0 means SSD, 1 means HDD
+Reset audio devices:
+
+```
+pulseaudio -k && sudo alsa force-reload
+```
 
 ### Software
 
