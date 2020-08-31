@@ -178,7 +178,11 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 ## Install PHP 7 using phpbrew
 
 ```
-yum install libcurl-devel oniguruma-devel libreadline-devel libzip-devel
+wget http://packages.psychotic.ninja/7/plus/x86_64/RPMS/libzip-0.11.2-6.el7.psychotic.x86_64.rpm
+wget http://packages.psychotic.ninja/7/plus/x86_64/RPMS/libzip-devel-0.11.2-6.el7.psychotic.x86_64.rpm
+yum install libzip-0.11.2-6.el7.psychotic.x86_64.rpm libzip-devel-0.11.2-6.el7.psychotic.x86_64.rpm
+
+yum install libcurl-devel oniguruma-devel libreadline-devel
 
 phpbrew install 7.4.9 +default +fpm +mysql +gd +openssl +filter +json +curl +iconv +mbstring +fileinfo +ctype +gd +zip
 ```
