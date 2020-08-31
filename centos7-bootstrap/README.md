@@ -187,7 +187,6 @@ yum install libcurl-devel oniguruma-devel libreadline-devel sqlite-devel libicu-
 phpbrew install 7.4.9 +default +fpm +mysql +gd +openssl +filter +json +curl +iconv +mbstring +fileinfo +ctype +gd +zip
 phpbrew ext install sqlite3 pdo_sqlite intl xdebug
 phpbrew ext install pdo_sqlite
-phpbrew ext install pdo_mysql
 phpbrew ext install intl
 phpbrew ext install xdebug
 ```
