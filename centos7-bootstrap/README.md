@@ -185,5 +185,6 @@ yum install libzip-0.11.2-6.el7.psychotic.x86_64.rpm libzip-devel-0.11.2-6.el7.p
 yum install libcurl-devel oniguruma-devel libreadline-devel sqlite-devel
 
 phpbrew install 7.4.9 +default +fpm +mysql +gd +openssl +filter +json +curl +iconv +mbstring +fileinfo +ctype +gd +zip
+phpbrew ext install sqlite3
 ```
 
