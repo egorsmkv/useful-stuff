@@ -178,7 +178,7 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 ## Install PHP 7 using phpbrew
 
 ```
-yum install libcurl-devel oniguruma-devel libreadline-devel #libzip-devel
+yum install libcurl-devel oniguruma-devel libreadline-devel libzip-devel
 
 phpbrew install 7.4.9 +default +fpm +mysql +gd +openssl +filter +json +curl +iconv +mbstring +fileinfo +ctype +gd +zip
 ```
