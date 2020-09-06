@@ -126,7 +126,7 @@ git clone git://github.com/vozlt/nginx-module-vts.git
   --with-stream_realip_module \
   --with-stream_geoip_module=dynamic \
   --with-stream_ssl_preread_module \
-  --add-module=./ngx_brotli
+  --add-module=./ngx_brotli \
   --add-module=./nginx-module-vts
 
 mkdir /opt/nginx-1.19.2/
