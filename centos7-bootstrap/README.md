@@ -59,6 +59,7 @@ curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compo
 wget https://github.com/go-acme/lego/releases/download/v3.8.0/lego_v3.8.0_linux_amd64.tar.gz
 tar xf lego_v3.8.0_linux_amd64.tar.gz
 mv lego /usr/local/bin
+rm lego_v3.8.0_linux_amd64.tar.gz CHANGELOG.md LICENSE
 
 lego --email="foo@bar.com" --domains="example.com" --http run
 ```
