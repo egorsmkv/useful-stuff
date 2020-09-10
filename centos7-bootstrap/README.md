@@ -173,6 +173,8 @@ tar xf go1.15.2.linux-amd64.tar.gz
 mv go /usr/local/
 
 echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+
+rm go1.15.2.linux-amd64.tar.gz
 ```
 
 ## Install PHP 7 using phpbrew
