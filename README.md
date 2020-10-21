@@ -1,9 +1,15 @@
 ### Commands
 
-Start a connection using OpenSSL to an SMTP server.
+Start a connection using OpenSSL to an SMTP server:
 
 ```
 openssl s_client -starttls smtp -connect smtp.gmail.com:587
+```
+
+Print information about a certificate:
+
+```
+openssl x509 -text -noout -in domain_com.crt
 ```
 
 Get MX records for a domain:
