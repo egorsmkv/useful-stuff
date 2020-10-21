@@ -61,6 +61,10 @@ tar xf lego_v3.8.0_linux_amd64.tar.gz
 mv lego /usr/local/bin
 rm lego_v3.8.0_linux_amd64.tar.gz CHANGELOG.md LICENSE
 
+# for ecdsa certificate
+lego --email="foo@bar.com" --domains="example.com" --http run
+
+# for rsa certificate
 lego --email="foo@bar.com" --domains="example.com" --key-type rsa2048 --http run
 ```
 
