@@ -166,6 +166,8 @@ ExecStop=/bin/kill -s TERM $MAINPID
 WantedBy=multi-user.target
 ```
 
+Uncomment `pid logs/nginx.pid` line and change it to `/opt/nginx-1.19.2/nginx.pid` in the `/opt/nginx-1.19.2/conf/nginx.conf` file.
+
 And enable nginx service:
 
 ```
