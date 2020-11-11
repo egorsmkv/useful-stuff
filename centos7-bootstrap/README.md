@@ -143,10 +143,11 @@ useradd nginx
 chown -R nginx:nginx /opt/nginx-1.19.2/
 
 vim /usr/lib/systemd/system/nginx.service
+```
 
-# Paste the following
-===============================
+Paste the following:
 
+```
 [Unit]
 Description=nginx - high performance web server
 Documentation=https://nginx.org/en/docs/
@@ -163,9 +164,11 @@ ExecStop=/bin/kill -s TERM $MAINPID
 
 [Install]
 WantedBy=multi-user.target
+```
 
-===============================
+And enable nginx service:
 
+```
 systemctl start nginx
 systemctl enable nginx
 ```
