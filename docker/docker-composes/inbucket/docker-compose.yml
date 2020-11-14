@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  inbucket:
+    image: jhillyerd/inbucket
+    ports:
+      - 5944:10080
+      - 2500:10025
+      - 9001:9000
