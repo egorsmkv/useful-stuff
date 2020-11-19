@@ -89,6 +89,7 @@ yum install \
 
 wget https://nginx.org/download/nginx-1.19.2.tar.gz
 tar xf nginx-1.19.2.tar.gz
+rm nginx-1.19.2.tar.gz
 cd nginx-1.19.2
 
 git clone https://github.com/google/ngx_brotli.git
