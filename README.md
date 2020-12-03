@@ -61,6 +61,7 @@ Add a user for Percona Monitor and Management:
 CREATE USER pmm@'%' IDENTIFIED BY 'pass';
 GRANT SELECT, PROCESS, SUPER, REPLICATION CLIENT, RELOAD ON *.* TO 'pmm'@'%';
 GRANT SELECT, UPDATE, DELETE, DROP ON performance_schema.* TO 'pmm'@'%';
+FLUSH PRIVILEGES;
 ```
 
 Read the General MySQL log:
