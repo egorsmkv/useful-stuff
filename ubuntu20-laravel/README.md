@@ -40,4 +40,7 @@ composer global require laravel/installer
 
 ```
 /home/ubuntu/.config/composer/vendor/bin/laravel new demo1
+
+cd demo1
+php artisan serve --host 0.0.0.0
 ```
