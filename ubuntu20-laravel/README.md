@@ -14,7 +14,7 @@ apt install php8.0 unzip
 ## Install needed extensions for Laravel 8
 
 ```
-apt install php8.0-xml php8.0-tokenizer php8.0-pdo php8.0-mbstring php8.0-fileinfo php8.0-ctype php8.0-bcmath php8.0-zip php8.0-sqlite3
+apt install php8.0-xml php8.0-tokenizer php8.0-pdo php8.0-mbstring php8.0-fileinfo php8.0-ctype php8.0-bcmath php8.0-zip php8.0-sqlite3 php8.0-mysql
 ```
 
 ## Install Composer
