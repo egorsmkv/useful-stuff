@@ -35,3 +35,9 @@ Latest commands are here: https://getcomposer.org/download/
 su - ubuntu
 php /usr/local/bin/composer.phar global require laravel/installer
 ```
+
+## Create a test project
+
+```
+/home/ubuntu/.config/composer/bin/laravel new demo1
+```
