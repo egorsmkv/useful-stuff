@@ -8,7 +8,7 @@ sudo -i
 
 apt install lsb-release ca-certificates apt-transport-https software-properties-common
 add-apt-repository ppa:ondrej/php
-apt install php8.0
+apt install php8.0 unzip
 ```
 
 ## Install needed extensions for Laravel 8
