@@ -3,6 +3,7 @@
 ## Install PHP 8
 
 ```
+# log in as root
 sudo -i
 
 apt install lsb-release ca-certificates apt-transport-https software-properties-common
@@ -31,5 +32,6 @@ Latest commands are here: https://getcomposer.org/download/
 ## Install Laravel Installer
 
 ```
+su - ubuntu
 php /usr/local/bin/composer.phar global require laravel/installer
 ```
