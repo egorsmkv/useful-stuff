@@ -28,3 +28,8 @@ mv composer.phar /usr/local/bin/
 
 Latest commands are here: https://getcomposer.org/download/
 
+## Install Laravel Installer
+
+```
+php /usr/local/bin/composer.phar global require laravel/installer
+```
