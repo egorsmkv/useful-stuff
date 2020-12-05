@@ -39,5 +39,5 @@ php /usr/local/bin/composer.phar global require laravel/installer
 ## Create a test project
 
 ```
-/home/ubuntu/.config/composer/bin/laravel new demo1
+/home/ubuntu/.config/composer/vendor/bin/laravel new demo1
 ```
