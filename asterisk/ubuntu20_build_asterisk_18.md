@@ -74,3 +74,9 @@ Other needed commands:
 make config
 ldconfig
 ```
+
+Create a user:
+
+```
+adduser --system --group --home /var/lib/asterisk --no-create-home --gecos "Asterisk PBX" asterisk
+```
