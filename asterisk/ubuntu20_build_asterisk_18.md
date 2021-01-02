@@ -92,8 +92,8 @@ chown -R asterisk: /var/{lib,log,run,spool}/asterisk /usr/lib/asterisk /etc/aste
 chmod -R 750 /var/{lib,log,run,spool}/asterisk /usr/lib/asterisk /etc/asterisk
 ```
 
-Uncomment **AST_USER** and **AST_GROUP** variables in the `/etc/default/asterisk` file.
-Uncomment **runuser** and **rungroup** variables in the `/etc/asterisk/asterisk.conf` file.
+- Uncomment **AST_USER** and **AST_GROUP** variables in the `/etc/default/asterisk` file.
+- Uncomment **runuser** and **rungroup** variables in the `/etc/asterisk/asterisk.conf` file.
 
 That's it.
 
