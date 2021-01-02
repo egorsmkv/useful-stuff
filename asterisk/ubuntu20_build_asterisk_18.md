@@ -75,10 +75,11 @@ make config
 ldconfig
 ```
 
-Create a user:
+Create a user and the user to other groups:
 
 ```
 adduser --system --group --home /var/lib/asterisk --no-create-home --gecos "Asterisk PBX" asterisk
+usermod -a -G dialout,audio asterisk
 ```
 
 Uncomment **AST_USER** and **AST_GROUP** variables in the `/etc/default/asterisk` file.
