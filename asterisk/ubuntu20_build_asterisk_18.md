@@ -79,7 +79,11 @@ Create a user and the user to other groups:
 
 ```
 adduser --system --group --home /var/lib/asterisk --no-create-home --gecos "Asterisk PBX" asterisk
+
 usermod -a -G dialout,audio asterisk
+
+chown -R asterisk: /var/{lib,log,run,spool}/asterisk /usr/lib/asterisk /etc/asterisk
+chmod -R 750 /var/{lib,log,run,spool}/asterisk /usr/lib/asterisk /etc/asterisk
 ```
 
 Uncomment **AST_USER** and **AST_GROUP** variables in the `/etc/default/asterisk` file.
