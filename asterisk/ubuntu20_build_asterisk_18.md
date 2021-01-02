@@ -33,4 +33,13 @@ Download Asterisk and extract it:
 ```
 wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18.1.1.tar.gz
 tar xf asterisk-18.1.1.tar.gz
+
+cd asterisk-18.1.1/
+```
+
+Run required scripts before configuration:
+
+```
+./contrib/scripts/get_mp3_source.sh
+./contrib/scripts/install_prereq install
 ```
