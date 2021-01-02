@@ -42,3 +42,35 @@ Run required scripts before configuration:
 ./contrib/scripts/get_mp3_source.sh
 ./contrib/scripts/install_prereq install
 ```
+
+Configure:
+
+```
+./configure
+```
+
+Explore the Menuselect:
+
+```
+make menuselect
+```
+
+Make and install:
+
+```
+make
+make install
+```
+
+Install samples (optional):
+
+```
+make samples
+```
+
+Other needed commands:
+
+```
+make config
+ldconfig
+```
