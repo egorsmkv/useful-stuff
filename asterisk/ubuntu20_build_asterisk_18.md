@@ -31,6 +31,6 @@ apt-get install git-core subversion wget libjansson-dev sqlite autoconf automake
 Download Asterisk and extract it:
 
 ```
-https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18.1.1.tar.gz
+wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18.1.1.tar.gz
 tar xf asterisk-18.1.1.tar.gz
 ```
