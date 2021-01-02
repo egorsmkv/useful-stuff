@@ -68,6 +68,12 @@ Install samples (optional):
 make samples
 ```
 
+Enable log rotation:
+
+```
+make install-logrotate
+```
+
 Other needed commands:
 
 ```
