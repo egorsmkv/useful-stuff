@@ -27,3 +27,10 @@ Install the dependencies:
 apt-get install build-essential
 apt-get install git-core subversion wget libjansson-dev sqlite autoconf automake libxml2-dev libncurses5-dev libtool
 ```
+
+Download Asterisk and extract it:
+
+```
+https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18.1.1.tar.gz
+tar xf asterisk-18.1.1.tar.gz
+```
