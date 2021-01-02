@@ -87,3 +87,11 @@ chmod -R 750 /var/{lib,log,run,spool}/asterisk /usr/lib/asterisk /etc/asterisk
 ```
 
 Uncomment **AST_USER** and **AST_GROUP** variables in the `/etc/default/asterisk` file.
+
+That's it.
+
+Start Asterisk:
+
+```
+systemctl start asterisk
+```
