@@ -24,8 +24,7 @@ apt-get upgrade
 Install the dependencies:
 
 ```
-apt-get install build-essential
-apt-get install git-core subversion wget libjansson-dev sqlite autoconf automake libxml2-dev libncurses5-dev libtool
+apt-get install build-essential wget
 ```
 
 Download Asterisk and extract it:
