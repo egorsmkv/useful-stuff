@@ -14,10 +14,6 @@ services:
       - TZ=Europe/Kiev
     ports:
       - 3380:3306
-    logging:
-      options:
-        max-size: 10m
-        max-file: 3
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -34,10 +30,6 @@ services:
       - MYSQL_PASSWORD=
     ports:
       - 8001:80
-    logging:
-      options:
-        max-size: 10m
-        max-file: 3
     volumes:
       - pma_data:/sessions
     depends_on:
