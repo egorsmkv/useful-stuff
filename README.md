@@ -101,6 +101,13 @@ Reset audio devices:
 pulseaudio -k && sudo alsa force-reload
 ```
 
+Extract channels from a file:
+
+```
+ffmpeg -i call.wav -map_channel 0.0.0 speaker_1.wav
+ffmpeg -i call.wav -map_channel 0.0.1 speaker_2.wav
+```
+
 ### Software
 
 #### Monitoring
