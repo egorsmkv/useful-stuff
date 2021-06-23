@@ -2,7 +2,7 @@ version: '3'
 
 services:
   inbucket:
-    image: jhillyerd/inbucket
+    image: inbucket/inbucket
     container_name: inbucket_test
     ports:
       - 5944:10080
