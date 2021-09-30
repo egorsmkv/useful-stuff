@@ -6,6 +6,12 @@ Start a connection using OpenSSL to an SMTP server:
 openssl s_client -starttls smtp -connect smtp.gmail.com:587
 ```
 
+Show certificate:
+
+```
+openssl s_client -showcerts -connect smtp.gmail.com:465 -servername smtp.gmail.com
+```
+
 Print information about a certificate:
 
 ```
