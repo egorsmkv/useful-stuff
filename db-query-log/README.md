@@ -6,7 +6,7 @@
 chmod +x ./disable_query_log.sh
 chmod +x ./enable_query_log.sh
 
-mkdir query_log
+mkdir /var/lib/mysql/query_log
 ```
 
 Edit the `disable_query_log.sh` and `enable_query_log.sh` files to set correct MySQL credentials.
