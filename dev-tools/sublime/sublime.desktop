@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+StartupNotify=true
+Name=Sublime Text
+Name[en_US]=Sublime Text
+GenericName=Text Editor
+GenericName[en_US]=Text Editor
+Comment=Edit text files
+Comment[en_US]=Edit text files
+Exec=/home/yehor/Tools/sublime_text/sublime_text %U
+Icon=/home/yehor/Tools/sublime_text/Icon/128x128/sublime-text.png
+Categories=Development;TextEditor;
+MimeType=text/plain;
+Actions=Window;
+
+[Desktop Action Window]
+Name=Open a New Window
+Name[en_US]=Open a New Window
+Exec=/home/yehor/Tools/sublime_text/sublime_text --new-window %U
+OnlyShowIn=Unity;
