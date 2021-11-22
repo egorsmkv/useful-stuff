@@ -1,5 +1,11 @@
 ### Commands
 
+Get chmod in the number representation:
+
+```
+stat --format '%a' <file>
+```
+
 Start a connection using OpenSSL to an SMTP server:
 
 ```
