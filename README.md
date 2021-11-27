@@ -30,6 +30,25 @@ Get MX records for a domain:
 dig mx gmail.com
 ```
 
+Email send test:
+
+```
+# Swaks is an smtp of CURL, install it first:
+curl http://www.jetmore.org/john/code/swaks/files/swaks-20130209.0/swaks -o swaks
+# Set the permissions for the script so you can run it
+chmod +x swaks
+# It's based on perl, so install perl
+sudo apt-get -y install perl
+# now send!
+./swaks --auth \
+	--server smtp.mailgun.org \
+	--au postmaster@YOUR_DOMAIN_NAME \
+	--ap 3kh9umujora5 \
+	--to bar@example.com \
+	--h-Subject: "Hello" \
+	--body 'Testing some Mailgun awesomness!'
+```
+
 Upload a file to a file share service:
 
 ```
