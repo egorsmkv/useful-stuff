@@ -118,6 +118,8 @@ Determine the size of databases in MySQL:
 SELECT table_schema AS "Database", SUM(data_length + index_length) / 1024 / 1024 / 1024 AS "Size (GB)" FROM information_schema.TABLES GROUP BY table_schema;
 ```
 
+Useful queries for PostgeSQL: https://gist.github.com/rgreenjr/3637525
+
 Determine server's disk types:
 
 ```
