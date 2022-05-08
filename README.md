@@ -1,5 +1,11 @@
 ### Commands
 
+Find large files:
+
+```
+find . -type f -size +1G -print 2>/dev/null
+```
+
 Get chmod in the number representation:
 
 ```
